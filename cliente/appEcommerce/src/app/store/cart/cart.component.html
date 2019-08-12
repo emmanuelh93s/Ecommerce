@@ -1,0 +1,41 @@
+<!-- Page Content -->
+<div class="container">
+  <br><br>
+  <div class="row">
+    <table class="table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Sub-Total</th>
+          <th scope="col">Delate</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let line of cart.lines">
+        <tr>
+          <td>{{line.product.productName}}</td>
+          <td>{{line.product.MSRP | currency}}</td> 
+          <td>
+            <input type="number" [value]="line.quantity" (change)="cart.updateProduct(line.product, $event.target.value)">
+          </td>
+          <td>  
+            {{line.lineTotal | currency}} 
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="cart.deleteProduct(productCode)">
+                <img src="https://img.icons8.com/plasticine/2x/delete-sign.png" alt="" width="30" height="30">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Final amount</th>
+          <th>{{cart.cartPrice | currency}}</th>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+
+<div class="pull-xs-rigth">
+    <small>
+        <button class="btn btn-info" [disabled]="cart.itemCount == 0" [routerLink]="['/cart']" routerLinkActive="router-link-active">
+      <span *ngIf="cart.itemCount > 0">
+        {{cart.itemCount}} item (s)
+        {{cart.cartPrice | currency: "USD": true: "2.2-2"}}
+      </span>
+      <span *ngIf="cart.itemCount == 0" class="color">
+        CLEAN
+      </span>
+      <img src="http://digital.cciformationpro.fr/wp-content/uploads/2018/04/shopping-cart-304843_640.png" alt="" width="30" height="30">
+      </button>      
+    </small>  
+  </div>     
